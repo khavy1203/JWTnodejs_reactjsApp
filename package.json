@@ -24,7 +24,9 @@
         "express": "4.17.2",
         "i": "^0.3.7",
         "mysql2": "^2.3.3",
-        "npm": "^8.5.1"
+        "npm": "^8.5.1",
+        "sequelize": "^6.17.0",
+        "sequelize-cli": "^6.4.1"
     },
     "devDependencies": {
         "@babel/cli": "^7.17.3",

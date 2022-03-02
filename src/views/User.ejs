@@ -15,6 +15,12 @@
         <div class="row">
             <div class="user-infor-container">
                 <form method="post" action="user/create-user">
+                    <div class="mb-3 mt-3 col-6">
+                        <label for="Name" class="form-label">Name</label>
+                        <input name="name" type="text" class="form-control" placeholder="" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+
+                    <div class="col-6"></div>
                     <div class="mb-3 col-6">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
                         <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -35,9 +41,10 @@
                 <table class="table table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,8 +58,15 @@
                                         <%= item.userEmail%>
                                     </td>
                                     <td>
-                                        <%= item.userPassword%>
+                                        <%= item.userName%>
                                     </td>
+                                    <td>
+                                        <a href="user/update/<%= item.id%>" class="btn btn-warning">Edit</a>
+                                        <form style="display:inline" method="post" action="/user/delete-user/<%= item.id %>">
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+
                                 </tr>
                                 <% }) %>
 
