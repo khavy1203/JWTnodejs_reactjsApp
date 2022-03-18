@@ -12,7 +12,7 @@ configViewEngine(app);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//init web initWebRoutes
+//init web initWebRoutesnpx sequelize-cli init
 initWebRoutes(app);
 
 const PORT = process.env.PORT || 8080;
