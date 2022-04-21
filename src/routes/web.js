@@ -1,5 +1,6 @@
 import express from "express";
-import homeController from "../controller/homeController"
+import homeController from "../controller/homeController";
+import apiController from "../controller/apiController";
 const routes = express.Router();
 
 const initWebRoutes = (app) => {
@@ -11,6 +12,7 @@ const initWebRoutes = (app) => {
     routes.post("/user/delete-user/:id", homeController.handleDeleteUser);
     routes.post("/user/update-user", homeController.handleUpdateUser);
 
+    routes.get("/api/test", apiController.test);
     return app.use("/", routes);
 }
 export default initWebRoutes;

@@ -2,7 +2,7 @@
 import mysql2 from 'mysql2/promise';
 import bluebird from 'bluebird';
 import bcryptjs from 'bcryptjs';
-import db from '../models/index.js';
+import db from '../models/index.js';//connectdb
 
 // create the connection to database
 // create the connection, specify bluebird as Promise
@@ -24,8 +24,6 @@ const createUserService = async (userEmail, userName, userPassword) => {
     //     }
     // );
     // return userHashPassword;
-
-
     try {
         await db.User.create({
             userEmail: userEmail,
@@ -38,23 +36,23 @@ const createUserService = async (userEmail, userName, userPassword) => {
 }
 const getUserList = async () => {
     //test relationship
-    let newUser = await db.User.findOne({
-        where: { id: 1 },
-        attributes: ["userName", "userEmail"],
-        include: { model: db.Group, attributes: ["name", "description"] },
-        raw: true, //trả ra 1 objet của js,
-        nest: true //gộp đống bắt đầu 1 tên thành 1 object
-    })
-    console.log("New user >>>>>> ", newUser);
+    // let newUser = await db.User.findOne({
+    //     where: { id: 1 },
+    //     attributes: ["userName", "userEmail"],
+    //     include: { model: db.Group, attributes: ["name", "description"] },
+    //     raw: true, //trả ra 1 objet của js,
+    //     nest: true //gộp đống bắt đầu 1 tên thành 1 object
+    // })
+    // console.log("New user >>>>>> ", newUser);
 
 
-    let roles = await db.Role.findAll({
+    // let roles = await db.Role.findAll({
 
-        include: { model: db.Group, where: { id: 1 } },
-        raw: true, //trả ra 1 objet của js,
-        nest: true //gộp đống bắt đầu 1 tên thành 1 object
-    })
-    console.log("All roles >>>>>> ", roles);
+    //     include: { model: db.Group, where: { id: 1 } },
+    //     raw: true, //trả ra 1 objet của js,
+    //     nest: true //gộp đống bắt đầu 1 tên thành 1 object
+    // })
+    // console.log("All roles >>>>>> ", roles);
     // connection.query(
     //     'SELECT * FROM `user`',
     //     function (err, results, fields) {
