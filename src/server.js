@@ -4,6 +4,8 @@ import initApiRoutes from './routes/api';
 import configViewEngine from './config/viewEngine';
 import bodyParser from 'body-parser';
 import configCors from './config/cors';
+import cookieParser from 'cookie-parser';
+
 
 const app = express();
 // Add headers before the routes are defined
@@ -25,17 +27,22 @@ const app = express();
 //     // Pass to next layer of middleware
 //     next();
 // });
-configCors(app);
+configCors(app);// cors cho trang web
 //config view engine
 configViewEngine(app);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(cookieParser()); // thêm cookie đẩy về phía sever
+
 //init web initWebRoutesnpx sequelize-cli init
 // initWebRoutes(app);
 initApiRoutes(app);
 initWebRoutes(app);
+app.use((req, res) => {//xử lý khi link vào 1 link bất kì mà không tồn tại
+    return res.send("404 not found");
+});
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log('jwt nodejs and react ' + PORT);
