@@ -67,7 +67,13 @@ routes.all("*", checkUserJwt, checkUserPermission,);//mặc định các
 thành
 `let canAccess = true`
 ## 8 Call API từ Postmain
+
 Chọn method POST `Domain+/api/v1/login`
+
 Chọn `x-www-form-urlencode`
+
 `account:khavy114@gmail.com`
+
 `password:123456789`
+
+`Send` : Api sẽ trả về mọi trạng thái thông tin
