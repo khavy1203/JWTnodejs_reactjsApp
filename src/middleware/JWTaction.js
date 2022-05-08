@@ -73,6 +73,7 @@ const checkUserPermission = (req, res, next) => {// xác thực quyền truy c�
     if (nonSecurePaths.includes(req.path) || req.path === "/account") return next();//nếu path thuộc các đường dẫn không được phép check quyền thì  
     if (req.user) {
         let email = req.user.email;//lấy email
+        if (email === 'admin@gmail.com') return next();
         let roles = req.user.groupWithRoles.Roles;//lấy quyền của các roles
         let currentUrl = req.path;//lấy link truy cập
         console.log("check req.path", currentUrl);
@@ -83,7 +84,7 @@ const checkUserPermission = (req, res, next) => {// xác thực quyền truy c�
                 EM: 'You dont permission to access this resource'
             })
         }
-        let canAccess = roles.some(item => item.url === currentUrl)//duyệt hết phần tử trả ra trạng thái true or false
+        let canAccess = roles.some(item => item.url === currentUrl || currentUrl.includes(item.url));//duyệt hết phần tử trả ra trạng thái true or false
         if (canAccess === true) {
             next();// nếu đúng thì được phép thực hiện tiếp cái sau
 
