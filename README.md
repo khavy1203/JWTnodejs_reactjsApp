@@ -1,5 +1,5 @@
 # JWTnodejs_reactjsApp
-## 1. Clone file từ github :[JWT SEVER API](https://github.com/khavy1203/JWTnodejs_reactjsApp/)
+## 1. Clone file từ github :[JWT SEVER API](https://github.com/khavy1203/JWTnodejs_reactjsApp/tree/jwt)
 ## 2. Cài đặt môi trường Nodejs lên windown : [Document enviroment Nodejs](https://enews.agu.edu.vn/index.php?option=com_content&view=article&id=21117&Itemid=128/)
 ## 3. Cài đặt phần mềm quản lý Nodejs : [Manager Version Node NVM](https://stackjava.com/nodejs/nvm-la-gi-cai-dat-nvm-tren-windows-node-js.html/)
 
